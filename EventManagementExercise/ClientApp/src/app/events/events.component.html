@@ -1,0 +1,33 @@
+<div class="container-fluid mt-3 main">
+  <div class="card no-border">
+    <div class="card-body bg-light">
+      <div class="card-title">
+        <h2 class="d-inline">Events</h2>
+        <a class="btn btn-primary float-end" [routerLink]="['add']"><i class="fa fa-plus"></i></a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div *ngFor="let ev of events" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 p-1">
+            <div class=" post u-shadow p-4">
+              <h2 class="title">
+                <a [routerLink]="['edit', ev.id]">{{ ev.name }}</a>
+                <div class="d-inline float-end">
+                  <a class="btn btn-light m-1" [routerLink]="['edit', ev.id]"><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-light m-1" (click)="onDelete(ev.id)"><i class="fa fa-remove"></i></a>
+                </div>
+              </h2>
+              <span class="dob d-block mt-1">
+                <i class="fa fa-clock"></i>&nbsp;
+                {{ ev.date | date }}
+              </span>
+              <span class="email d-block">
+                <i class="fa fa-users mt-1"></i>&nbsp;
+                {{ ev.guests?.length }} Guest(s)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

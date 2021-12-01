@@ -1,0 +1,36 @@
+<div class="container-fluid mt-3 main">
+  <div class="card no-border">
+    <div class="card-body bg-light">
+      <div class="card-title">
+        <h2 class="d-inline">Guests</h2>
+        <a class="btn btn-primary float-end" [routerLink]="['add']"><i class="fa fa-plus"></i></a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div *ngFor="let guest of guests" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 p-1">
+            <div class="post u-shadow p-4">
+              <h2 class="title">
+                <a [routerLink]="['edit', guest.id]">{{ guest.firstName + " " + guest.lastName }}</a>
+                <div class="d-inline float-end">
+                  <a class="btn btn-light m-1" [routerLink]="['edit', guest.id]"><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-light m-1" (click)="onDelete(guest.id)"><i class="fa fa-remove"></i></a>
+                </div>
+              </h2>
+              <span class="email d-block">
+                <i class="fa fa-envelope mt-1"></i>&nbsp;
+                {{ guest.email }}
+              </span>
+              <span class="dob d-block mt-1" *ngIf="guest.dob">
+                <i class="fa fa-calendar"></i>&nbsp;
+                {{ guest.dob | date }}
+              </span>
+              <div class="allergies mt-1">
+                <span *ngFor="let allergy of guest.allergies" class="badge bg-secondary m-1">{{ allergy.name }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.u-shadow {
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .02);
+  transition: box-shadow .3s ease-in-out;
+}
+
+.u-shadow:hover {
+  box-shadow: 0 0 20px rgb(0 0 0 / 12%);
+}
+
+.post {
+  background: #fff;
+  flex-direction: column;
+  height: 100%;
+}
+
+.guest {
+  border: 1px solid #eee;
+}
+
+.guest.checked {
+  border: 1px solid rgb(0, 182, 76);
+  border-bottom: 3px solid rgb(0, 182, 76);
+}
